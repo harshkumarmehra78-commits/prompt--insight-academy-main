@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 13%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 13%;
+
+    --primary: 140 52% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 140 20% 96%;
+    --secondary-foreground: 0 0% 13%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 140 30% 95%;
+    --accent-foreground: 140 52% 28%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 140 52% 35%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 30%;
+    --sidebar-primary: 140 52% 35%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 140 20% 96%;
+    --sidebar-accent-foreground: 0 0% 13%;
+    --sidebar-border: 0 0% 92%;
+    --sidebar-ring: 140 52% 35%;
+
+    --navbar-bg: 0 0% 100%;
+    --navbar-foreground: 0 0% 13%;
+
+    --code-bg: 0 0% 97%;
+    --code-foreground: 0 0% 20%;
+    --code-border: 0 0% 90%;
+
+    --highlight: 140 52% 35%;
+  }
+
+  .dark {
+    --background: 0 0% 10%;
+    --foreground: 0 0% 90%;
+
+    --card: 0 0% 13%;
+    --card-foreground: 0 0% 90%;
+
+    --popover: 0 0% 13%;
+    --popover-foreground: 0 0% 90%;
+
+    --primary: 140 52% 42%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 16%;
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 55%;
+
+    --accent: 140 20% 16%;
+    --accent-foreground: 140 52% 60%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 140 52% 42%;
+
+    --sidebar-background: 0 0% 12%;
+    --sidebar-foreground: 0 0% 70%;
+    --sidebar-primary: 140 52% 42%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 16%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 140 52% 42%;
+
+    --navbar-bg: 0 0% 12%;
+    --navbar-foreground: 0 0% 90%;
+
+    --code-bg: 0 0% 8%;
+    --code-foreground: 140 40% 65%;
+    --code-border: 0 0% 20%;
+
+    --highlight: 140 52% 42%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  code, pre {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .code-block {
+    background: hsl(var(--code-bg));
+    color: hsl(var(--code-foreground));
+    border: 1px solid hsl(var(--code-border));
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    font-size: 0.875rem;
+    line-height: 1.7;
+  }
+
+  .flow-diagram {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .flow-step {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  .flow-arrow {
+    color: hsl(var(--muted-foreground));
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .topic-card {
+    @apply bg-card border rounded-lg p-6 transition-all duration-200;
+    &:hover {
+      @apply shadow-lg;
+      border-color: hsl(var(--primary));
+      transform: translateY(-2px);
+    }
+  }
+
+  .prose-docs {
+    @apply max-w-none;
+    h1 { @apply text-3xl font-bold mb-4 text-foreground; }
+    h2 { @apply text-2xl font-bold mt-10 mb-4 text-foreground; border-bottom: 2px solid hsl(var(--primary) / 0.3); padding-bottom: 0.5rem; }
+    h3 { @apply text-xl font-semibold mt-8 mb-3 text-foreground; }
+    p { @apply mb-4 leading-relaxed text-foreground/85; }
+    ul { @apply mb-4 pl-6 space-y-2; list-style-type: disc; }
+    li { @apply text-foreground/85 leading-relaxed; }
+    strong { @apply text-foreground font-semibold; }
+  }
+}
